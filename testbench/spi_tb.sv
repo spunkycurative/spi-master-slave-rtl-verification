@@ -1,4 +1,10 @@
 // Testbench Module for SPI Master/Slave verification
+`include "transaction.sv"
+`include "generator.sv"
+`include "driver.sv"
+`include "monitor.sv"
+`include "scoreboard.sv"
+`include "environment.sv"
 module tb;
 
   // 1. Interface Instantiation
