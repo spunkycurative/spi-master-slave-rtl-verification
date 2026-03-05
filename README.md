@@ -32,6 +32,7 @@ Monitor the chip select (CS) signal, ensuring correct transaction initiation and
 Verify that the slave reconstructs data correctly and signals transaction completion.
 Analyze waveforms to understand the timing relationships of clock, MOSI, MISO, and CS signals.
 
+```
 Repository Structure
 SPI-Project/
 ├── rtl/
@@ -41,6 +42,6 @@ SPI-Project/
 ├── testbench/
 │   └── testbench.sv
 └── README.md
-
+```
 
 This structure keeps the RTL modules separate from testbench files, making it easier to manage the project and extend it with additional functionality, like multi-slave communication, different SPI modes, or error-checking mechanisms.
