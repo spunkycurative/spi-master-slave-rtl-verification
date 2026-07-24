@@ -34,10 +34,13 @@ input clk,newd,rst,
   
   reg [11:0] temp;
   
-  always @(posedge sclk) begin
-    if(rst==1'b1) begin
-      cs<=1'b1;
-      mosi<=1'b0;
+  always @(posedge sclk or posedge rst) begin
+   if(rst) begin
+    cs    <= 1'b1;
+    mosi  <= 1'b0;
+    state <= idle;
+    count <= 0;
+    temp  <= 12'h000;
     end
     
     else begin
@@ -51,7 +54,7 @@ input clk,newd,rst,
             end
             else begin
               state<=idle;
-              temp<=8'h00;
+              //temp<=12'h00;
               
             end
             
@@ -60,7 +63,7 @@ input clk,newd,rst,
         send:begin
           if(count<=11)begin
             mosi<=temp[count];
-            count=count+1;
+            count<=count+1;
             
           end
           
